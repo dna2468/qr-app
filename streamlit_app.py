@@ -1,6 +1,6 @@
 import streamlit as st
 import qrcode
-from PIL import Image, ImageDraw  # ← この行を修正
+from PIL import Image, ImageDraw # この行が修正されています
 import io
 
 st.set_page_config(layout="wide")
@@ -52,17 +52,15 @@ with col2:
             if logo_image:
                 logo = Image.open(logo_image).convert('RGBA')
                 
-                # ロゴのサイズをQRコードの約1/4にする
                 qr_w, qr_h = qr_img.size
                 logo_max_size = qr_w // 4
                 logo.thumbnail((logo_max_size, logo_max_size))
                 
-                # ロゴを貼り付ける位置を計算（中央）
                 logo_pos = ((qr_w - logo.width) // 2, (qr_h - logo.height) // 2)
                 
-                # ロゴの背景を透過させるためのマスクを作成
+                # ここからがImageDrawを使う部分
                 mask = Image.new('L', logo.size, 0)
-                draw = Image.Draw(mask)
+                draw = ImageDraw.Draw(mask) # drawインスタンスを作成
                 draw.rectangle((0, 0) + logo.size, fill=255)
 
                 qr_img.paste(logo, logo_pos, mask=logo)
