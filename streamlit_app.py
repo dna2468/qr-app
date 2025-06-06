@@ -1,6 +1,6 @@
 import streamlit as st
 import qrcode
-from PIL import Image
+from PIL import Image, ImageDraw  # ← この行を修正
 import io
 
 st.set_page_config(layout="wide")
