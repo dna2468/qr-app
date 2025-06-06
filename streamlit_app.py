@@ -25,7 +25,7 @@ col1, col2 = st.columns([1, 2])
 with col1:
     st.subheader("設定プレビュー")
     if logo_image:
-        st.image(logo_image, caption="アップロードされたロゴ", use_column_width=True)
+        st.image(logo_image, caption="アップロードされたロゴ", use_container_width=True)
     else:
         st.info("ロゴをアップロードするとここに表示されます。")
 
@@ -70,7 +70,7 @@ with col2:
             img_bytes = io.BytesIO()
             qr_img.save(img_bytes, format='PNG')
             
-            st.image(img_bytes, caption="QRコードが生成されました！", use_column_width=True)
+            st.image(img_bytes, caption="QRコードが生成されました！", use_container_width=True)
 
             # ダウンロードボタン
             st.download_button(
