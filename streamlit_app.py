@@ -40,7 +40,7 @@ with col2:
                 version=1,
                 error_correction=qrcode.constants.ERROR_CORRECT_H, # H: 高い復元能力
                 box_size=5,
-                border=4,
+                border=2,
             )
             qr.add_data(qr_data)
             qr.make(fit=True)
