@@ -25,7 +25,7 @@ col1, col2 = st.columns([1, 2])
 with col1:
     st.subheader("設定プレビュー")
     if logo_image:
-        st.image(logo_image, caption="アップロードされたロゴ", width=250)
+        st.image(logo_image, caption="アップロードされたロゴ", width=150)
     else:
         st.info("ロゴをアップロードするとここに表示されます。")
 
@@ -40,7 +40,7 @@ with col2:
                 version=1,
                 error_correction=qrcode.constants.ERROR_CORRECT_H, # H: 高い復元能力
                 box_size=5,
-                border=4,
+                border=2,
             )
             qr.add_data(qr_data)
             qr.make(fit=True)
