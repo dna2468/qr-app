@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw # この行が修正されています
 import io
 
 st.set_page_config(layout="wide")
-st.title("ロゴ入り＆カラフルQRコードメーカー🎨")
+st.title("ロゴ入りQRコードメーカー")
 
 # --- サイドバー（入力部分） ---
 st.sidebar.header("QRコードの設定")
@@ -70,7 +70,7 @@ with col2:
             img_bytes = io.BytesIO()
             qr_img.save(img_bytes, format='PNG')
             
-            st.image(img_bytes, caption="QRコードが生成されました！", use_container_width=True)
+            st.image(img_bytes, caption="QRコードが生成されました！", width=150)
 
             # ダウンロードボタン
             st.download_button(
